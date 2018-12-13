@@ -17,7 +17,7 @@ import org.junit.Assert.*
 class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
-        // Context of the app under test.
+        // Context of the com.nastia.administrator.daily_advice_app.app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         assertEquals("com.nastia.administrator.daily_advice_app", appContext.packageName)
     }
