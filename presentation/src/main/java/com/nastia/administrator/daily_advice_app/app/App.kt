@@ -2,6 +2,7 @@ package com.nastia.administrator.daily_advice_app.app
 
 import android.app.Application
 import com.nastia.administrator.daily_advice_app.inject.AppComponent
+import com.nastia.administrator.daily_advice_app.inject.DaggerAppComponent
 import com.nastia.administrator.daily_advice_app.inject.DomainModule
 
 class App : Application() {

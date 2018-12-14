@@ -3,7 +3,9 @@ package com.nastia.administrator.daily_advice_app.inject
 import android.content.Context
 import com.nastia.administrator.daily_advice_app.executor.UIThread
 import com.nastia.administrator.data.net.RestService
+import com.nastia.administrator.data.repositories.AdviceRepositoryImpl
 import com.nastia.administrator.domain.executor.PostExecutorThread
+import com.nastia.administrator.domain.repositories.AdviceRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -22,4 +24,8 @@ class DomainModule (private val context: Context) {
     @Provides
     fun provideRestService(serverUrl: String): RestService
             = RestService(serverUrl)
+
+//    @Provides
+//    fun provideAdviceRepository()
+//            : AdviceRepository = AdviceRepositoryImpl(context)
 }

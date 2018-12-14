@@ -1,17 +1,16 @@
 package com.nastia.administrator.daily_advice_app.presentation.screen.activityStart
 
+import android.arch.lifecycle.ViewModelProviders
+import com.nastia.administrator.daily_advice_app.R
+import com.nastia.administrator.daily_advice_app.databinding.ActivityStartBinding
 import com.nastia.administrator.daily_advice_app.presentation.base.BaseMvvmActivity
 
 class StartActivity : BaseMvvmActivity<StartViewModel, StartRouter, ActivityStartBinding>() {
-    override fun prodiveViewModel(): StartViewModel {
-        return ViewModelProviders.of(this).get(MainViewModel::class.java)
+    override fun provideViewModel(): StartViewModel {
+        return ViewModelProviders.of(this).get(StartViewModel::class.java)
     }
 
-    override fun provideRouter(): StartRouter {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun provideRouter(): StartRouter = StartRouter(this)
 
-    override fun provideLayoutId(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun provideLayoutId(): Int = R.layout.activity_start
 }

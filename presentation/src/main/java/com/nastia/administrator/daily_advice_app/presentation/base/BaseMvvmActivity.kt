@@ -9,11 +9,11 @@ abstract class BaseMvvmActivity <VM : BaseViewModel<R>,
         R : BaseRouter<*>,
         B : ViewDataBinding> : BaseActivity() {
 
-    protected lateinit var viewModel: VM
-    protected lateinit var binding: B
-    public lateinit var router: R
+    private lateinit var viewModel: VM
+    private lateinit var binding: B
+    lateinit var router: R
 
-    abstract fun prodiveViewModel(): VM
+    abstract fun provideViewModel(): VM
 
     abstract fun provideRouter(): R
 
@@ -21,7 +21,7 @@ abstract class BaseMvvmActivity <VM : BaseViewModel<R>,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = prodiveViewModel()
+        viewModel = provideViewModel()
         binding = DataBindingUtil.setContentView(this, provideLayoutId())
         binding.setVariable(BR.viewModel, viewModel)
         router = provideRouter()
