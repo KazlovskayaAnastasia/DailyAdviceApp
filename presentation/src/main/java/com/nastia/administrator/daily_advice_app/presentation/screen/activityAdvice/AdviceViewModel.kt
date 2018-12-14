@@ -20,7 +20,6 @@ class AdviceViewModel : BaseViewModel<AdviceRouter>() {
     }
 
     var advice = ObservableField<String>("")
-    var id : Int = 0
 
     @Inject
     lateinit var getAdviceUseCase: GetAdviceUseCase
@@ -32,7 +31,6 @@ class AdviceViewModel : BaseViewModel<AdviceRouter>() {
             onNext = {
                 Log.e("aaa", "AdviceViewModel - onNext: " + it.toString())
                 advice.set(it.advice)
-                id++
             },
             onError = {
                 Log.e("aaa", "AdviceViewModel - onError: " + it.toString())
