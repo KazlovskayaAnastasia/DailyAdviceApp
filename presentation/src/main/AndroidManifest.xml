@@ -9,6 +9,7 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
+            android:name=".app.App"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
         <activity
                 android:name=".presentation.screen.activityStart.StartActivity"
@@ -20,9 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity android:name=".presentation.screen.activityAdvice.MainActivity" />
         <activity android:name=".presentation.screen.activityAdvice.AdviceActivity" />
+        <activity android:name=".presentation.screen.activityFavorite.FavoriteAdviceActivity" />
     </application>
 
 </manifest>

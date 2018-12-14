@@ -1,20 +1,17 @@
 package com.nastia.administrator.data.repositories
 
 import com.nastia.administrator.data.entity.transformToDomain
-import com.nastia.administrator.data.net.RestService
+import com.nastia.administrator.data.net.RestApi
 import com.nastia.administrator.domain.entity.Advice
-import io.reactivex.Observable
 import com.nastia.administrator.domain.repositories.AdviceRepository
+import io.reactivex.Observable
+import javax.inject.Inject
 
-class AdviceRepositoryImpl(private val apiService: RestService) : AdviceRepository {
-
-    override fun getData(): Observable<List<Advice>> {
-
+class AdviceRepositoryImpl @Inject constructor(private val apiService: RestApi) : AdviceRepository {
+    override fun getRandomAdvice(): Observable<Advice> {
         return apiService.getAdvice()
             .map {
-                it.map {
-                    it.transformToDomain()
-                }
+                it.advice.transformToDomain()
             }
     }
 }

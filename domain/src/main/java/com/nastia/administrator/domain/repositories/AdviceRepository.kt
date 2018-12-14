@@ -5,5 +5,5 @@ import io.reactivex.Observable
 
 interface AdviceRepository : BaseRepository {
 
-    fun getData(): Observable<List<Advice>>
+    fun getRandomAdvice(): Observable<Advice>
 }

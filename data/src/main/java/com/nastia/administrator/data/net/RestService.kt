@@ -1,7 +1,7 @@
 package com.nastia.administrator.data.net
 
 import com.google.gson.GsonBuilder
-import com.nastia.administrator.data.entity.AdviceResponse
+import com.nastia.administrator.data.entity.Slip
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,7 +11,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 //для загрузки и получения
-class RestService(apiUrl: String) {
+class RestService(apiUrl: String):RestApi {
+    override fun getAdvice(): Observable<Slip> {
+        return restApi.getAdvice()
+    }
 
     private val restApi: RestApi
 
@@ -33,9 +36,5 @@ class RestService(apiUrl: String) {
                 .build()
 
         restApi = retrofit.create(RestApi::class.java)
-    }
-
-    fun getAdvice():Observable<List<AdviceResponse>>{
-        return restApi.getAdvice()
     }
 }

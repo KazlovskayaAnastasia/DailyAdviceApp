@@ -11,8 +11,8 @@ class GetAdviceUseCase @Inject constructor(
     private val adviceRepository: AdviceRepository
 ) : BaseUseCase(postExecutorThread) {
 
-    fun get(): Observable<List<Advice>> {
-        return adviceRepository.getData()
+    fun get(): Observable<Advice> {
+        return adviceRepository.getRandomAdvice()
             .observeOn(postExecutorThread)
             .subscribeOn(workExecutorThread)
     }

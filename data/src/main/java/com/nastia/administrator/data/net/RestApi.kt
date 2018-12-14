@@ -1,10 +1,10 @@
 package com.nastia.administrator.data.net
 
-import com.nastia.administrator.data.entity.AdviceResponse
+import com.nastia.administrator.data.entity.Slip
 import io.reactivex.Observable
-import retrofit2.http.*
+import retrofit2.http.GET
 
 interface RestApi {
-    @GET("data/Advices")
-    fun getAdvice(): Observable<List<AdviceResponse>>
+    @GET("advice")
+    fun getAdvice(): Observable<Slip>
 }

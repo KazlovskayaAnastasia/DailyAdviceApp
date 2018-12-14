@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.nastia.administrator.daily_advice_app.presentation.screen.activityFavorite.FavoriteAdviceViewModel"/>
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/advice_background">
+
+        <TextView
+                android:id="@+id/tv_greeting_text"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Your favorite advices here"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:textSize="35sp"/>
+
+    </RelativeLayout>
+
+</layout>

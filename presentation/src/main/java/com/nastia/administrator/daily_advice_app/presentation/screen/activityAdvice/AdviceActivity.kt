@@ -6,6 +6,7 @@ import com.nastia.administrator.daily_advice_app.databinding.ActivityAdviceBindi
 import com.nastia.administrator.daily_advice_app.presentation.base.BaseMvvmActivity
 
 class AdviceActivity : BaseMvvmActivity<AdviceViewModel, AdviceRouter, ActivityAdviceBinding>() {
+
     override fun provideViewModel(): AdviceViewModel {
         return ViewModelProviders.of(this).get(AdviceViewModel::class.java)
     }
@@ -13,4 +14,5 @@ class AdviceActivity : BaseMvvmActivity<AdviceViewModel, AdviceRouter, ActivityA
     override fun provideRouter(): AdviceRouter = AdviceRouter(this)
 
     override fun provideLayoutId(): Int = R.layout.activity_advice
+
 }

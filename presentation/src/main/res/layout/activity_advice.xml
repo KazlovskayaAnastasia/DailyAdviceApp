@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <variable
@@ -7,20 +8,53 @@
                 type="com.nastia.administrator.daily_advice_app.presentation.screen.activityAdvice.AdviceViewModel"/>
     </data>
 
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/advice_background">
 
         <TextView
-                android:id="@+id/tv_greeting_text"
-                android:layout_width="250dp"
+            android:id="@+id/tv_advice_text"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.advice}"
+            android:gravity="center"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="100dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tv_favorite_advice"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
-
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="100dp"
                 android:gravity="center"
-                android:textSize="25sp"/>
+                android:background="@drawable/btn_my_advice"
+                android:text="My favorite advice"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:onClick="@{viewModel::onClickFavoriteAdvice}"/>
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/iv_heart"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/heart"
+                android:onClick="@{viewModel::onClickSelect}"
+                android:layout_marginStart="60dp"/>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
 </layout>
