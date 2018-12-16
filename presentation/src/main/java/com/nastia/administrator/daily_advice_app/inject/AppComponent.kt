@@ -2,6 +2,7 @@ package com.nastia.administrator.daily_advice_app.inject
 
 import com.nastia.administrator.daily_advice_app.app.App
 import com.nastia.administrator.daily_advice_app.presentation.screen.activityAdvice.AdviceViewModel
+import com.nastia.administrator.daily_advice_app.presentation.screen.activityFavorite.FavoriteAdviceViewModel
 import com.nastia.administrator.data.net.RestApi
 import dagger.BindsInstance
 import dagger.Component
@@ -25,6 +26,7 @@ interface AppComponent {
     fun inject(viewModel: AdviceViewModel)
 
     fun inject(app: App)
+    fun inject(viewModel: FavoriteAdviceViewModel)
 
     fun provideBackendService(): RestApi
 }

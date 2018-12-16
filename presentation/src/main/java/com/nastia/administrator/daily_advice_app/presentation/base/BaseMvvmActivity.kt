@@ -9,8 +9,8 @@ abstract class BaseMvvmActivity <VM : BaseViewModel<R>,
         R : BaseRouter<*>,
         B : ViewDataBinding> : BaseActivity() {
 
-    private lateinit var viewModel: VM
-    private lateinit var binding: B
+    protected lateinit var viewModel: VM
+    protected lateinit var binding: B
     lateinit var router: R
 
     abstract fun provideViewModel(): VM

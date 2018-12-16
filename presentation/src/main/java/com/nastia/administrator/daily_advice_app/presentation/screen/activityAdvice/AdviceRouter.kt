@@ -10,7 +10,6 @@ class AdviceRouter (activity: AdviceActivity) : BaseRouter<AdviceActivity>(activ
 
     fun selectAdvice(){
         activity.iv_heart.setBackgroundResource(R.drawable.heart_red)
-
     }
 
     fun goToFavoriteAdvice() {
