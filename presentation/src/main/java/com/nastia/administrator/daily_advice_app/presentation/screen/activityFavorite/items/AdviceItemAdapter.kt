@@ -8,6 +8,5 @@ class AdviceItemAdapter: BaseRecyclerAdapter<Advice, AdviceItemViewModel>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): AdviceItemViewHolder {
         return AdviceItemViewHolder.create(viewGroup, AdviceItemViewModel())
-
     }
 }

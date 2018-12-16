@@ -10,8 +10,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-//для загрузки и получения
-class RestService(apiUrl: String):RestApi {
+class RestService(apiUrl: String) : RestApi {
     override fun getAdvice(): Observable<Slip> {
         return restApi.getAdvice()
     }
@@ -20,20 +19,20 @@ class RestService(apiUrl: String):RestApi {
 
     init {
         val okHttpBuilder = OkHttpClient.Builder()
-                .readTimeout(30, TimeUnit.SECONDS)//сколько времени на чтение данных
-                .writeTimeout(30, TimeUnit.SECONDS)
-                .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .connectTimeout(30, TimeUnit.SECONDS)
 
         okHttpBuilder.addInterceptor(HttpLoggingInterceptor())
 
         val gson = GsonBuilder().create()
 
         val retrofit = Retrofit.Builder()
-                .baseUrl(apiUrl)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) //ответы в виде rx
-                .addConverterFactory(GsonConverterFactory.create(gson))//как делать парсинг данных
-                .client(okHttpBuilder.build())
-                .build()
+            .baseUrl(apiUrl)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(okHttpBuilder.build())
+            .build()
 
         restApi = retrofit.create(RestApi::class.java)
     }

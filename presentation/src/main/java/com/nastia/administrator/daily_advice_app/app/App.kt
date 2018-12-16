@@ -16,6 +16,7 @@ class App : Application(), HasActivityInjector {
 
     @Inject
     lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+
     companion object {
         lateinit var instance: App
         @JvmStatic
@@ -35,8 +36,5 @@ class App : Application(), HasActivityInjector {
             .build()
 
         appComponent.inject(this)
-
-
-//        Fabric.with(this, Crashlytics())
     }
 }

@@ -7,5 +7,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="greeting_text">Are you ready to get a daily advice?</string>
+    <string name="btn_favorite_advices">My favorite advice</string>
     <string name="btn_text">Go!</string>
 </resources>

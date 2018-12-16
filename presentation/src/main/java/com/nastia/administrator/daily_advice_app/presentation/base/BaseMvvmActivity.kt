@@ -5,7 +5,7 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import com.nastia.administrator.daily_advice_app.BR
 
-abstract class BaseMvvmActivity <VM : BaseViewModel<R>,
+abstract class BaseMvvmActivity<VM : BaseViewModel<R>,
         R : BaseRouter<*>,
         B : ViewDataBinding> : BaseActivity() {
 

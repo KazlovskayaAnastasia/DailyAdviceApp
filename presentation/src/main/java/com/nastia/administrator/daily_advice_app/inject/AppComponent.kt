@@ -15,12 +15,12 @@ import javax.inject.Singleton
 interface AppComponent {
 
     @Component.Builder
-    interface Builder{
+    interface Builder {
 
         @BindsInstance
-        fun application(application: App):Builder
+        fun application(application: App): Builder
 
-        fun build():AppComponent
+        fun build(): AppComponent
     }
 
     fun inject(viewModel: AdviceViewModel)

@@ -13,8 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:refreshing="@{viewModel.isLoading}"
-            app:onRefreshListener="@{() -> viewModel.onRefresh()}"
-            >
+            app:onRefreshListener="@{() -> viewModel.onRefresh()}">
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -49,7 +48,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:background="@drawable/btn_my_advice"
-                        android:text="My favorite advice"
+                        android:text="@string/btn_favorite_advices"
                         android:textColor="@color/white"
                         android:textSize="25dp"
                         android:onClick="@{viewModel::onClickFavoriteAdvice}"/>
@@ -66,9 +65,6 @@
 
         </android.support.constraint.ConstraintLayout>
 
-
     </android.support.v4.widget.SwipeRefreshLayout>
-
-
 
 </layout>

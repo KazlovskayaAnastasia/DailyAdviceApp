@@ -6,7 +6,6 @@ import io.reactivex.disposables.Disposable
 
 abstract class BaseActivity : AppCompatActivity() {
 
-
     protected val compositeDisposable: CompositeDisposable by lazy {
         CompositeDisposable()
     }

@@ -30,20 +30,4 @@ abstract class BaseRecyclerAdapter
         itemList.clear()
         notifyDataSetChanged()
     }
-
-//    override fun onViewAttachedToWindow(holder: BaseViewHolder<Entity, VM, *>) {
-//        super.onViewAttachedToWindow(holder)
-//        holder.itemView.setOnClickListener {
-//            val pos = holder.adapterPosition
-//            clickItemSubject.onNext(ItemClick(itemList[pos], pos))
-//            holder.viewModel.onItemClick()
-//        }
-//    }
-//
-//    override fun onViewDetachedFromWindow(holder: BaseViewHolder<Entity, VM, *>) {
-//        super.onViewDetachedFromWindow(holder)
-//        holder.itemView.setOnClickListener(null)
-//    }
-
-
 }

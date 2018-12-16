@@ -14,7 +14,7 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class DomainModule  {
+class DomainModule {
 
     @Provides
     @Singleton
@@ -25,10 +25,10 @@ class DomainModule  {
     fun providePostExecutorThread(): PostExecutorThread = UIThread()
 
     @Provides
-    fun provideRestService(@Named("serverUrl") serverUrl: String): RestApi
-            = RestService(serverUrl)
+    fun provideRestService(@Named("serverUrl") serverUrl: String): RestApi = RestService(serverUrl)
 
     @Provides
+    @Singleton
     fun provideAdviceRepository(restService: RestApi)
             : AdviceRepository = AdviceRepositoryImpl(restService)
 
@@ -43,5 +43,5 @@ class DomainModule  {
 class AppModule {
     @Provides
     @Singleton
-    fun provideApplication(app : App):Context = app
+    fun provideApplication(app: App): Context = app
 }

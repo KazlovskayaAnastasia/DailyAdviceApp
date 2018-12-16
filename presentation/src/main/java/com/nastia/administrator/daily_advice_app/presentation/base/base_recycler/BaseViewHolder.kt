@@ -7,8 +7,7 @@ import com.nastia.administrator.daily_advice_app.BR
 abstract class BaseViewHolder<Entity,
         VM : BaseItemViewModel<Entity>,
         Binding : ViewDataBinding>
-    (val binding: Binding, val viewModel: VM)
-    : RecyclerView.ViewHolder(binding.root){
+    (private val binding: Binding, val viewModel: VM) : RecyclerView.ViewHolder(binding.root) {
 
     init {
         binding.setVariable(BR.viewModel, viewModel)

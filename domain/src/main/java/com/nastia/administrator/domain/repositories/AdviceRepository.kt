@@ -7,7 +7,7 @@ interface AdviceRepository : BaseRepository {
 
     fun getRandomAdvice(): Observable<Advice>
 
-    fun getFavoriteAdvices() : Observable<List<Advice>>
+    fun getFavoriteAdvices(): Observable<List<Advice>>
 
     fun addToFavorite(advice: Advice): Observable<Advice>
 }

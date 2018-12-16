@@ -7,7 +7,8 @@ import com.nastia.administrator.daily_advice_app.R
 import com.nastia.administrator.daily_advice_app.databinding.ActivityFavoriteAdviceBinding
 import com.nastia.administrator.daily_advice_app.presentation.base.BaseMvvmActivity
 
-class FavoriteAdviceActivity : BaseMvvmActivity<FavoriteAdviceViewModel, FavoriteAdviceRouter, ActivityFavoriteAdviceBinding>() {
+class FavoriteAdviceActivity :
+    BaseMvvmActivity<FavoriteAdviceViewModel, FavoriteAdviceRouter, ActivityFavoriteAdviceBinding>() {
 
     override fun provideViewModel(): FavoriteAdviceViewModel {
         return ViewModelProviders.of(this).get(FavoriteAdviceViewModel::class.java)
@@ -23,6 +24,5 @@ class FavoriteAdviceActivity : BaseMvvmActivity<FavoriteAdviceViewModel, Favorit
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.adapter = viewModel.adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(binding.recyclerView.context)
-//        binding.listRecyclerView.setHasFixedSize(true)
     }
 }

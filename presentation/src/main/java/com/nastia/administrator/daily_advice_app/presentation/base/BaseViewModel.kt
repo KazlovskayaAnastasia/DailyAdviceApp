@@ -8,7 +8,7 @@ abstract class BaseViewModel <R : BaseRouter<*>>: ViewModel() {
 
     protected var router: R? = null
 
-    protected val compositeDisposable: CompositeDisposable by lazy {
+    private val compositeDisposable: CompositeDisposable by lazy {
         CompositeDisposable()
     }
 

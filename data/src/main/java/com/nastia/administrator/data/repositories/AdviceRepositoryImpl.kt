@@ -9,12 +9,15 @@ import javax.inject.Inject
 
 class AdviceRepositoryImpl @Inject constructor(private val apiService: RestApi) : AdviceRepository {
 
-    var favoriteAdvices:MutableList<Advice> =  mutableListOf()
+    var favoriteAdvices: MutableList<Advice> = mutableListOf()
 
     override fun getRandomAdvice(): Observable<Advice> {
         return apiService.getAdvice()
             .map {
-                it.advice.transformToDomain()
+
+                val favorite = favoriteAdvices.filter { advice -> advice.id == it.advice.id }
+
+                it.advice.transformToDomain(!favorite.isEmpty())
             }
     }
 
@@ -22,7 +25,7 @@ class AdviceRepositoryImpl @Inject constructor(private val apiService: RestApi) 
         return Observable.just(favoriteAdvices)
     }
 
-    override fun addToFavorite(advice : Advice): Observable<Advice> {
+    override fun addToFavorite(advice: Advice): Observable<Advice> {
         val newFavorite = Advice(advice.id, advice.advice, true)
         favoriteAdvices.add(newFavorite)
         return Observable.just(newFavorite)

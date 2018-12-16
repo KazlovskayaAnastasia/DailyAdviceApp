@@ -2,8 +2,8 @@ package com.nastia.administrator.daily_advice_app.presentation.base.base_recycle
 
 abstract class BaseItemViewModel<Entity> {
 
-    abstract fun bindItem(item:Entity, position: Int)
+    abstract fun bindItem(item: Entity, position: Int)
 
-    open fun onItemClick(){
+    open fun onItemClick() {
     }
 }

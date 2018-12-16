@@ -11,7 +11,7 @@ class AddToFavoriteUseCase @Inject constructor(
     private val adviceRepository: AdviceRepository
 ) : BaseUseCase(postExecutorThread) {
 
-    fun addToFavorite(advice : Advice): Observable<Advice> {
+    fun addToFavorite(advice: Advice): Observable<Advice> {
         return adviceRepository.addToFavorite(advice)
             .observeOn(postExecutorThread)
             .subscribeOn(workExecutorThread)

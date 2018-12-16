@@ -2,14 +2,15 @@ package com.nastia.administrator.data.entity
 
 import com.google.gson.annotations.SerializedName
 
-data class Slip (
+data class Slip(
     @SerializedName("slip")
-    val advice:AdviceResponse
+    val advice: AdviceResponse
 ) : DataEntity
 
-data class AdviceResponse (
+data class AdviceResponse(
     @SerializedName("slip_id")
-    val id:Int,
+    val id: Int,
 
     @SerializedName("advice")
-    val text:String)
+    val text: String
+)

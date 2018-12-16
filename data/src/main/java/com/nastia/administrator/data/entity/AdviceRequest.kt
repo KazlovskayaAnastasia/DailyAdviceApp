@@ -8,4 +8,5 @@ data class AdviceRequest(
     val id: Int,
 
     @SerializedName("advice")
-    val advice: String) : DataEntity
+    val advice: String
+) : DataEntity
