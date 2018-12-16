@@ -22,8 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.screen.activityAdvice.AdviceActivity" />
-        <activity android:name=".presentation.screen.activityFavorite.FavoriteAdviceActivity" />
+        <activity android:name=".presentation.screen.activityAdvice.AdviceActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".presentation.screen.activityFavorite.FavoriteAdviceActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -13,19 +13,18 @@
         android:id="@+id/favorite_advice_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:background="@drawable/item_background">
 
         <TextView
                 android:id="@+id/tv_favorite_advice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.favoriteAdvice}" />
-
-        <View android:layout_width="match_parent"
-              android:layout_height="2dp"
-              android:layout_marginTop="5dp"
-              android:background="@color/black"
-              android:layout_below="@+id/tv_favorite_advice"/>
+                android:text="@{viewModel.favoriteAdvice}"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingTop="5dp"/>
 
     </RelativeLayout>
 

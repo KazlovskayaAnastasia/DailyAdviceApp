@@ -23,7 +23,6 @@ abstract class BaseRecyclerAdapter
     fun addItems(items:List<Entity>){
         val startPos = itemList.size
         itemList.addAll(items)
-        //notifyDataSetChanged()
         notifyItemRangeChanged(startPos, items.size)
     }
 
