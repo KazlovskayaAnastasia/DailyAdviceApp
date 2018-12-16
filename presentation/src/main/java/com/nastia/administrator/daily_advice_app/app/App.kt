@@ -26,8 +26,6 @@ class App : Application(), HasActivityInjector {
         instance = this
     }
 
-
-
     override fun onCreate() {
         super.onCreate()
 

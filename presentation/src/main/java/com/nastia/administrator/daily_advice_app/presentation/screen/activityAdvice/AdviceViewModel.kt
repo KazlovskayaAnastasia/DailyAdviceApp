@@ -1,5 +1,6 @@
 package com.nastia.administrator.daily_advice_app.presentation.screen.activityAdvice
 
+import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.util.Log
 import android.view.View
@@ -20,20 +21,27 @@ class AdviceViewModel : BaseViewModel<AdviceRouter>() {
     }
 
     var advice = ObservableField<String>("")
+    var isLoading = ObservableBoolean()
 
-    @Inject
-    lateinit var getAdviceUseCase: GetAdviceUseCase
-//    lateinit var loadedadvice: Advice
-
-    init {
-        App.appComponent.inject(this)
+    fun onRefresh(){
+        isLoading.set(true)
         getAdviceUseCase.get().subscribeBy(
             onNext = {
-                Log.e("aaa", "AdviceViewModel - onNext: " + it.toString())
+                Log.e("aaa", "AdviceViewModel - onNext: " + it.toString() )
+
+                isLoading.set(false)
                 advice.set(it.advice)
             },
             onError = {
                 Log.e("aaa", "AdviceViewModel - onError: " + it.toString())
             })
+    }
+
+    @Inject
+    lateinit var getAdviceUseCase: GetAdviceUseCase
+
+    init {
+        App.appComponent.inject(this)
+        onRefresh()
     }
 }

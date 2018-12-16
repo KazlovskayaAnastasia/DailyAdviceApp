@@ -8,54 +8,67 @@
                 type="com.nastia.administrator.daily_advice_app.presentation.screen.activityAdvice.AdviceViewModel"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/start_background">
-
-        <TextView
-            android:id="@+id/tv_advice_text"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="@={viewModel.advice}"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="80dp"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <LinearLayout
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/pull_to_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:refreshing="@{viewModel.isLoading}"
+            app:onRefreshListener="@{() -> viewModel.onRefresh()}"
+            >
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/start_background">
 
             <TextView
-                android:id="@+id/tv_favorite_advice"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:background="@drawable/btn_my_advice"
-                android:text="My favorite advice"
-                android:textColor="@color/white"
-                android:textSize="25dp"
-                android:onClick="@{viewModel::onClickFavoriteAdvice}"/>
+                    android:id="@+id/tv_advice_text"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.advice}"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="35sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="80dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            <ImageView
-                android:id="@+id/iv_heart"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/heart"
-                android:onClick="@{viewModel::onClickSelect}"
-                android:layout_marginStart="60dp"/>
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-        </LinearLayout>
+                <TextView
+                        android:id="@+id/tv_favorite_advice"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/btn_my_advice"
+                        android:text="My favorite advice"
+                        android:textColor="@color/white"
+                        android:textSize="25dp"
+                        android:onClick="@{viewModel::onClickFavoriteAdvice}"/>
 
-    </android.support.constraint.ConstraintLayout>
+                <ImageView
+                        android:id="@+id/iv_heart"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/heart"
+                        android:onClick="@{viewModel::onClickSelect}"
+                        android:layout_marginStart="60dp"/>
+
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
 
 </layout>
