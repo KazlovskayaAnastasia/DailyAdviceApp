@@ -21,7 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.favoriteAdvice}"
-                android:onClick="@{viewModel::onItemDelete}"
                 android:textSize="25dp"
                 android:textColor="@color/white"
                 android:gravity="center"
